@@ -1,0 +1,68 @@
+# Messages de CheckCity
+# Codes couleur Minecraft avec & (ex: &c = rouge, &a = vert, &e = jaune, &7 = gris, &f = blanc, &l = gras)
+# Placeholders disponibles selon le message : %player%, %ip%, %provider%, %type%, %network%,
+# %list%, %other%, %player1%, %player2%, %command%, %types%
+
+no-permission: "&cTu n'as pas la permission d'utiliser cette commande."
+
+reload:
+  success: "&aConfiguration et messages de CheckCity rechargés."
+
+startup:
+  enabled-full: "CheckCity activé (détection multi-compte par IP + détection VPN/VPS/4G-5G)."
+  enabled-basic: "CheckCity activé (détection multi-compte par IP, détection réseau désactivée)."
+
+trustaccount:
+  usage: "&eUsage : /trustaccount <joueur1> <joueur2>"
+  same-name: "&cCe sont les mêmes pseudos."
+  success: "&aComptes liés : %player1% et %player2% ne déclencheront plus d'alerte multi-compte entre eux."
+
+ipinfo:
+  disabled: "&cLa détection réseau (VPN/VPS/4G-5G) est désactivée dans la config."
+  usage: "&eUsage : /ipinfo <joueur>"
+  offline: "&cCe joueur n'est pas connecté."
+  analyzing: "&7Analyse réseau de %player% en cours..."
+  unavailable: "&cImpossible de récupérer les infos réseau (API indisponible)."
+  result: "&7→ %player% (%ip%) : %type%&7 — fournisseur : &f%provider%"
+
+network-type:
+  vpn: "&cVPN"
+  vps: "&cVPS / Hébergeur"
+  mobile: "&6Réseau mobile (4G/5G)"
+  residential: "&aConnexion résidentielle standard"
+
+bypass:
+  usage: "&eUsage : %command% <pseudo> <vpn|vps|4g|all>"
+  unknown-type: "&cType inconnu. Utilise : vpn, vps, 4g ou all."
+  granted: "&a%player% peut désormais se connecter via %types% sans être kick."
+  revoked: "&e%player% ne peut plus se connecter via %types% sans être kick."
+
+# Messages de log console / alertes admin (chat) / webhook Discord.
+# Les alertes admin et Discord n'ont pas besoin d'un %player% coloré différemment :
+# les couleurs & sont ignorées par Discord (elles s'affichent juste comme du texte simple).
+alerts:
+  multi-account-console: "%player% se connecte avec la même IP que : %list%"
+  multi-account-admin: "&c[CheckCity] &e%player%&7 a la même IP que : &f%list%"
+  multi-account-discord: "🔁 Même IP détectée pour (%player%) (%other%)"
+
+  mobile-console: "%player% se connecte depuis un réseau mobile (4G/5G) : %provider%"
+  mobile-discord: "📶 (%player%) se connecte depuis un réseau mobile 4G/5G (fournisseur : %provider%)"
+
+  network-admin: "&c[CheckCity] &e%player%&7 se connecte via &f%type%&7 (fournisseur : %provider%)"
+  network-discord: "🛡️ (%player%) se connecte via %type% (fournisseur : %provider%)"
+
+  kick-console: "%player% a été kick (réseau détecté : %network%)."
+  kick-admin: "&c[CheckCity] &e%player%&7 a été kick automatiquement (&f%network%&7)."
+  kick-discord: "⛔ (%player%) kick automatiquement — réseau détecté : %network%"
+
+# Message affiché au joueur kické. Chaque ligne de la liste est une ligne de l'écran de kick.
+kick-message:
+  - "&c&lConnexion refusée"
+  - ""
+  - "&7Une connexion &f%network%&7 a été détectée sur ton compte."
+  - "&7Pour des raisons de sécurité (anti multi-compte), les VPN, VPS"
+  - "&7et connexions mobiles (4G/5G) ne sont pas autorisés sur ce serveur."
+  - ""
+  - "&eSi tu penses qu'il s'agit d'une erreur, contacte un administrateur."
+  - "&7Un admin peut autoriser ton compte avec la commande :"
+  - "&f/trustbypasskick %player% <vpn|vps|4g>"

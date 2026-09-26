@@ -1,0 +1,16 @@
+# Active ou non la détection VPN / VPS / hébergeur / réseau mobile (4G/5G).
+enable-vpn-detection: true
+
+# Si activé, kick automatiquement tout joueur détecté en VPN, VPS/hébergeur
+# ou réseau mobile (4G/5G), sauf s'il a été autorisé via
+# /trustbypasskick <pseudo>. Nécessite enable-vpn-detection: true.
+kick-on-vpn-detection: true
+
+# Clé API proxycheck.io (optionnelle). Sans clé, l'API gratuite fonctionne
+# avec un quota limité (environ 1000 requêtes/jour au moment de l'écriture).
+# Récupérable gratuitement sur https://proxycheck.io
+proxycheck-api-key: ''
+
+# Webhook Discord où sont envoyées les alertes (multi-compte même IP, VPN/VPS,
+# et connexions 4G/5G). Laisser vide pour désactiver l'envoi Discord.
+discord-webhook-url: 'https://discord.com/api/webhooks/1536024692282884126/xSZvmjbB8t38Ha2GPN_CJb8IPm9bK0M7vphQHyS31vXmyOE5h9Kdu-gYeWLug8SV3R0p'

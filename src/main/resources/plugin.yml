@@ -1,0 +1,23 @@
+name: CheckCity
+version: '1.1'
+main: com.example.checkcity.CheckCity
+api-version: '1.20'
+author: LeGameurPSN_YT
+description: Détecte les comptes qui se connectent depuis la même IP (multi-compte), avec un système de comptes de confiance, et détecte les connexions VPN/VPS/hébergeur/4G-5G.
+
+commands:
+  trustaccount:
+    description: Lie deux comptes pour ne plus déclencher d'alerte multi-compte entre eux
+    usage: /trustaccount <joueur1> <joueur2>
+  ipinfo:
+    description: Affiche la classification réseau (VPN/VPS/4G-5G/résidentiel) d'un joueur connecté
+    usage: /ipinfo <joueur>
+  trustbypasskick:
+    description: Autorise un joueur à se connecter via un type de réseau précis (VPN, VPS ou 4G/5G) sans être kick automatiquement
+    usage: /trustbypasskick <pseudo> <vpn|vps|4g|all>
+  untrustbypasskick:
+    description: Révoque l'autorisation d'un joueur pour un type de réseau précis (VPN, VPS ou 4G/5G)
+    usage: /untrustbypasskick <pseudo> <vpn|vps|4g|all>
+  ccreload:
+    description: Recharge config.yml et messages.yml sans redémarrer le serveur
+    usage: /ccreload
